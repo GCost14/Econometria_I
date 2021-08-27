@@ -1,0 +1,70 @@
+\documentclass[9pt,xcolor=dvipsnames]{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usefonttheme{professionalfonts} 
+\usepackage{verbatim}
+\usepackage{mathptmx}
+\usepackage{beamerthemesplit}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{chngpage}
+\usepackage{nicefrac}
+\usepackage{subcaption}
+\useinnertheme{circles,rounded}
+\usetheme[compress]{Berlin}
+\definecolor{uofsgreen}{rgb}{0.25,.26,.5}
+\usecolortheme[named=uofsgreen]{structure}
+
+\parskip 3mm
+
+\usefonttheme[onlylarge]{structuresmallcapsserif}
+\usefonttheme[onlysmall]{structurebold}
+
+\setbeamerfont{frametitle}{size=\normalsize,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercolor{title}{fg=blue!80!black,bg=blue!20!white}
+\setbeamercolor{normal text}{bg=yellow!6}
+
+\defbeamertemplate*{footline}{shadow theme}
+{
+  \leavevmode
+  \hbox{\begin{beamercolorbox}[wd=1\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}
+    \usebeamerfont{author in head/foot}\insertshortauthor \hfill\insertshorttitle \hfill\insertframenumber\,/\,\inserttotalframenumber
+  \end{beamercolorbox}}
+  \vskip0pt
+}
+
+
+
+%%% FRONT MATTER
+
+\title[ECONOMETRIA I]{ECONOMETRIA I}
+\subtitle{Taller R}
+\date{Curso 2021}
+
+
+%%% DOCUMENT
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\frame{\titlepage}
+
+\begin{frame} \frametitle{INTRODUCCION}
+\centering{Contenidos}
+
+\end{frame}
+
+\section{Introduccion}
+
+\begin{frame}{Introduccion}
+
+\end{frame}
+
+\begin{frame}{Introduccion}
+
+\end{frame}
+
+
+\end{document}
+
