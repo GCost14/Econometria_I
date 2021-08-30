@@ -1,7 +1,7 @@
 ---
 title: "Econometría I"
 subtitle: Taller R
-date: "26 de agosto de 2021"
+date: "30 de agosto de 2021"
 output:
   beamer_presentation: default
   slidy_presentation: default
@@ -151,7 +151,7 @@ v2
 
 * *Factores*: se usan para variables categóricas   ```factor()```
 
-* *Data Frames*: se usan para almacenar datos en forma de tablas (filas / colunas). Pueden contener elementos de distinto tipo   ```data.frame()```
+* *Data Frames*: se usan para almacenar datos en forma de tablas (filas / columnas). Pueden contener elementos de distinto tipo   ```data.frame()```
 
 * *Tibbles*: dataframes con algunas particularideades por ejemplo no convierten por defecto vectores de texto en factores
 
@@ -177,8 +177,9 @@ https://eva.fcea.udelar.edu.uy/course/view.php?id=183&section=10
 
 * Leemos el archivo ```notas.csv``` que se encuentra guardado en la misma carpeta del proyecto.
 ```{r, message=FALSE}
-notas <- read.csv2("Datos/notas.csv")
 notas <- read_delim("Datos/notas.csv", delim =";")
+notas <- read_csv2("Datos/notas.csv")
+
 ```
 
 ```{r, echo=FALSE}
