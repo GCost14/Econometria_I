@@ -18,18 +18,15 @@ knitr::opts_chunk$set(echo = TRUE)
      + Instalación
      + RStudio Cloud
      + Características generales
-     
 * Rproject
-
 * Librerias y paquetes
      + ```tidyverse```
-     
 * Comandos básicos
-
+* Clases de objetos
 * Importar datos
      + ```readr```
      + algunas funciones basicas
-     
+* Obtención de ayuda
 
 ## Descarga e instalación de R y RStudio
 
@@ -130,6 +127,36 @@ x <- 3 * 4
 ```{r}
 x 
 ```
+***
+
+* Puedes crear un vector con la función ```c()```:
+```{r}
+v1 <- c(1, 2, 3, 4.5, "seis")
+v1
+
+v2 <- c(3, 7:10)
+v2
+
+```
+
+* Puedes crear matrices.
+
+## ¿Qué clases de objetos existen?
+
+* *Vectores*
+
+* *Matrices* y *Arrays*: Todos los elementos son numéricos   ```matrix()```
+
+* *Listas*: pueden contener elementos de distinto tipo    ```list()```
+
+* *Factores*: se usan para variables categóricas   ```factor()```
+
+* *Data Frames*: se usan para almacenar datos en forma de tablas (filas / colunas). Pueden contener elementos de distinto tipo   ```data.frame()```
+
+* *Tibbles*: dataframes con algunas particularideades por ejemplo no convierten por defecto vectores de texto en factores
+
+* *Funciones*: argumento, cuerpo, resultado
+
 
 ## ¿Cómo importamos datos?
 * Utilizamos la libreria ```readr``` del paquete ```tidyverse```.
@@ -149,13 +176,17 @@ https://eva.fcea.udelar.edu.uy/course/view.php?id=183&section=10
 ***
 
 * Leemos el archivo ```notas.csv``` que se encuentra guardado en la misma carpeta del proyecto.
-```{r, eval = FALSE}
+```{r, message=FALSE}
 notas <- read.csv2("Datos/notas.csv")
 notas <- read_delim("Datos/notas.csv", delim =";")
 ```
 
+```{r, echo=FALSE}
+notas
+```
+
 ***
-1.	Los datos pueden no tener nombres de columna. Se utiliza ``` col_names = FALSE```. 
+1.	Los datos pueden no tener nombres de columna. Se utiliza col_names = FALSE. 
 
 ```{r,  eval=FALSE}
 read_csv2("Datos/notas.csv", col_names = FALSE)
@@ -163,13 +194,13 @@ read_csv2("Datos/notas.csv", col_names = FALSE)
 
 Alternativamente,
 
-```{r,  eval=FALSE, message=FALSE}
-read_csv2("Datos/notas.csv", col_names = c("Primero", "Segundo", "Año", "Mujer"))
+```{r,  eval=FALSE}
+read_csv2("Datos/notas.csv",col_names=c("P","S","A","M"))
 ``` 
 
 2. ```na``` del inglés, “not available”, especifica el valor que se utiliza para representar los valores faltantes del archivo:
 
-```{r,  eval=FALSE, message=FALSE}
+```{r,  eval=FALSE}
 read_csv2("Datos/notas.csv", na = ".")
 ``` 
 ***
@@ -191,24 +222,46 @@ knitr::include_graphics('Imagenes/importacion2.png')
 
 ***
 
-## Algunas funciones basicas
+## Algunas funciones básicas
 
 * Una vez importados los datos podemos hacer estas funciones:
 
-    + View()
-    + Head()
-    + Tail()
-    + Dim()
-    + Names()
-    + Str()
-    + Summary()
+    + ```view()``` visualiza los datos como una "tabla".
+    
+    + ```names()``` muestra o establece los nombres de un objeto.
+    
+    + ```head()``` devuelve las primeras 6 partes de un objeto.
+    
+    + ```tail()``` devuelve las ultimas 6 partes de un objeto.
+    
+    + ```dim()``` establece la dimensión de un objeto.
+    
+    + ```str()``` muestra de forma compacta la estructura interna de un objeto.
+    
+    + ```summary()``` produce resúmenes de los datos o de los resultados de funciones de ajuste de modelos.
 
-```{r, eval=FALSE}
+*** 
+
+```{r}
+names(notas)
+
 head(notas)
+```
+***
+
+```{r}
 dim(notas)
+
+str(notas)
+```
+***
+
+```{r}
+summary(notas)
 ```
 
-## A practicar!!
+
+## Busquemos ayuda
 
 Puedes encontrar material de ayuda en:
 
@@ -225,16 +278,42 @@ https://www.rstudio.com/resources/cheatsheets/
 https://eva.fcea.udelar.edu.uy/pluginfile.php/286031/mod_folder/content/0/data-import.pdf?forcedownload=1
 
 
+## Busquemos ayuda en R
+
+* en la consola escribe ```?``` + nombre de la función 
+* en la concola escribe  ```??``` + algo parecido al nombre de la función 
+* en la pestaña  ```Help``` de la salida
+
+```{r, out.width='100%', fig.align='center', echo=FALSE}
+knitr::include_graphics('Imagenes/ayuda.png')
+```
+
+
 ## Actividad 
 1. Descargar e instalar R y RStudio. Abrir RStudio.
-2. Descargar la base de datos Notas.csv del EVA y guardarla en una carpeta llamada Taller_R_clase_1.
-3. Crear un proyecto en el directorio ya existente Taller_R_clase_1
-5. Abrir un nuevo script llamado ActividadClase1
-6. Descargar el paquete e instalar la librería “tidyverse”
-7. Importar el archivo Notas.csv, 
-8. Cambiar los nombres de las variables a “Primera”, “Segunda”, “Anio” y “Mujer”
-9. Observar las primeras 6 líneas , la dimensión y un resumen de cada variable
-10. Descargar los paquetes 
+
+2. Descargar la base de datos ```Notas.csv``` del EVA y guardarla en una carpeta llamada ```Taller_R_Econometria```.
+
+3. Crear un proyecto en el directorio ya existente ```Taller_R_Econometria```.
+
+4. Abrir un nuevo script y nombrarlo ```ActividadClase1```.
+
+5. Descargar el paquete e instalar la librería ```tidyverse```.
+
+6. Importar el archivo ```Notas.csv```. 
+
+***
+
+7. Observar los nombres de las variables, las primeras 6 líneas , la dimensión y un resumen de cada variable.
+
+8. Relizar un gráfico de dispersión entre dos variables y un histograma de otra. (Ayuda: investiga sobre la función ```plot()```)
+
+9. Crear un vector, con el nombre ```vector``` con los valores ```4.3456```, ```2.8888```, ```-2.25``` y ```-4```.
+
+10. Hallar el valor absoluto de los valores de ```vector```. (Ayuda: investiga sobre la función ```abs()```)
+
+11. Redondea los valores de ```vector``` con una cifra despues de la coma. (Ayuda: investiga sobre la función ```round()```).
+
 
 
 
