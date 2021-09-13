@@ -179,7 +179,6 @@ https://eva.fcea.udelar.edu.uy/course/view.php?id=183&section=10
 ```{r, message=FALSE}
 notas <- read_delim("Datos/notas.csv", delim =";")
 notas <- read_csv2("Datos/notas.csv")
-
 ```
 
 ```{r, echo=FALSE}
